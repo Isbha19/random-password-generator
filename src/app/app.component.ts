@@ -33,7 +33,13 @@ Symbols=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "
   generatePassword(){
     this.generatedPassword="";
     console.log("generate password");
+    if (!this.lowerCase && !this.upperCase && !this.numbers && !this.symbols) {
+      this.toastr.error('Please select at least one option to generate a password!');
+      return;
+    }
+  
     var passwordPool:any[]=[];
+    
     if(this.numbers){
       passwordPool=passwordPool.concat(this.numbersList);
     }
