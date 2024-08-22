@@ -49,7 +49,15 @@ Symbols=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "
     console.log(passwordPool);
     for(var i=0;i<this.passwordLength;i++){
       var index=Math.floor(Math.random()*(passwordPool.length))
+      console.log(index);
       this.generatedPassword=this.generatedPassword+passwordPool[index];
     }
   }
+  copyToClipboard() {
+    const inputElement: HTMLInputElement = document.getElementById('generatedPassword') as HTMLInputElement;
+    inputElement.select();
+    document.execCommand('copy');
+    alert('Password copied to clipboard!');
+  }
+  
 }
