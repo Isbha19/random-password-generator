@@ -10,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'random-password-generator';
+  passwordLength:number=15;
+  numbers:boolean=true;
+  symbols:boolean=true;
+  lowerCase:boolean=true;
+  upperCase:boolean=true;
+
 }
