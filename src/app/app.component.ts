@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(private toastr: ToastrService) {}
+
   title = 'random-password-generator';
   passwordLength:number=15;
   numbers:boolean=false;
@@ -57,7 +60,7 @@ Symbols=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "
     const inputElement: HTMLInputElement = document.getElementById('generatedPassword') as HTMLInputElement;
     inputElement.select();
     document.execCommand('copy');
-    alert('Password copied to clipboard!');
+    this.toastr.info('Password copied to clipboard!');
   }
   
 }
